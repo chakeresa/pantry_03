@@ -14,7 +14,8 @@ class Recipe
 
   def ingredient_list
     @ingredients.keys.map do |ingredient_obj|
-      ingredient_obj.name
+      amt_reqd_with_units = "#{quantity_needed(ingredient_obj)} #{ingredient_obj.unit}"
+      {ingredient: ingredient_obj.name, amount: amt_reqd_with_units}
     end
   end
 

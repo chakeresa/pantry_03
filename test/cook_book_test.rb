@@ -30,4 +30,29 @@ class CookBookTest < Minitest::Test
     @cookbook.add_recipe(@burger)
     assert_equal [@mac_and_cheese, @burger], @cookbook.recipes
   end
+
+  def test_summary_returns_hashes_nested_in_an_ary
+    expected = [
+      { :name    => "Mac and Cheese",
+        :details => {
+          :ingredients    => [
+            {:ingredient=>"Macaroni", :amount=>"8 oz"},
+            {:ingredient=>"Cheese",   :amount=>"2 C"}
+          ],
+          :total_calories => 440
+        }
+      },
+      { :name    => "Burger",
+        :details => {
+          :ingredients => [
+            {:ingredient=>"Ground Beef", :amount=>"4 oz"},
+            {:ingredient=>"Bun", :amount=>"100 g"}
+          ],
+          :total_calories=>500
+        }
+      }
+    ]
+
+    assert_equal expected, @cookbook.summary
+  end
 end

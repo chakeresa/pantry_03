@@ -12,4 +12,8 @@ class CookBook
   def add_recipe(recipe_obj)
     @recipes << recipe_obj
   end
+
+  def summary
+    # TO DO
+  end
 end
