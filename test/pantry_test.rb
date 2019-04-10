@@ -23,4 +23,11 @@ class PantryTest < Minitest::Test
   def test_stock_returns_zero_if_ingredient_not_in_stock
     assert_equal 0, @pantry.stock_check(@cheese)
   end
+
+  def test_restock_adds_to_amt_of_that_ingredient_in_stock
+    @pantry.restock(@cheese, 5)
+    @pantry.restock(@cheese, 10)
+
+    assert_equal 15, @pantry.stock_check(@cheese)
+  end
 end
