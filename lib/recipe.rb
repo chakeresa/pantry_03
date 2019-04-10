@@ -16,12 +16,11 @@ class Recipe
     @ingredients[ingredient_obj]
   end
 
-  # def total_calories
-  #   @ingredients.keys.sum do |ingredient_obj|
-  #     multiplier = @ingredients[ingredient_obj]
-  #     units_per_ingredient = calories_per_unit = ingredient_obj.unit
-  #     calories_per_unit = ingredient_obj.calories
-  #     multiplier * units_per_ingredient *  calories_per_unit
-  #   end
-  # end
+  def total_calories
+    @ingredients.keys.sum do |ingredient_obj|
+      units_of_ingred_per_recipe = @ingredients[ingredient_obj]
+      calories_per_unit_of_ingred = ingredient_obj.calories
+      units_of_ingred_per_recipe *  calories_per_unit_of_ingred
+    end
+  end
 end

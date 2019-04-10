@@ -32,13 +32,12 @@ class RecipeTest < Minitest::Test
     assert_equal 2, @apple_pie.quantity_needed(@apple)
   end
 
-  # def test_case_name
-  #   skip
-  #   @apple_pie.add_ingredient(@apple, 2)
-  #   @apple_pie.add_ingredient(@sugar, 2)
-  #
-  #   expected = 2 * 1 * 150 + 2 * 0.25 * 200
-  #
-  #   assert_equal @apple_pie.total_calories
-  # end
+  def test_total_calories_sums_calories_of_all_reqd_ingredient_amounts
+    @apple_pie.add_ingredient(@apple, 2)
+    @apple_pie.add_ingredient(@sugar, 1.5)
+
+    expected = 2 * 150 + 1.5 * 700
+
+    assert_equal expected,  @apple_pie.total_calories
+  end
 end
