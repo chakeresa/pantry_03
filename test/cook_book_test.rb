@@ -20,4 +20,14 @@ class CookBookTest < Minitest::Test
   def test_it_exists
     assert_instance_of CookBook, @cookbook
   end
+
+  def test_it_inits_with_empty_ary_of_recipes
+    assert_equal [], @cookbook.recipes
+  end
+
+  def test_add_recipe_adds_to_recipes_ary
+    @cookbook.add_recipe(@mac_and_cheese)
+    @cookbook.add_recipe(@burger)
+    assert_equal [@mac_and_cheese, @burger], @cookbook.recipes
+  end
 end
