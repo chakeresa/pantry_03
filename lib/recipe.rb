@@ -12,6 +12,12 @@ class Recipe
     @ingredients[ingredient_obj] = quantity_needed
   end
 
+  def ingredient_list
+    @ingredients.keys.map do |ingredient_obj|
+      ingredient_obj.name
+    end
+  end
+
   def quantity_needed(ingredient_obj)
     @ingredients[ingredient_obj]
   end

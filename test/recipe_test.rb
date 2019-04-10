@@ -26,6 +26,13 @@ class RecipeTest < Minitest::Test
     assert_equal expected, @apple_pie.ingredients
   end
 
+  def test_ingredient_list_returns_array_of_all_ingredient_names
+    @apple_pie.add_ingredient(@apple, 2)
+    @apple_pie.add_ingredient(@sugar, 1.5)
+
+    assert_equal ["apple", "sugar"], @apple_pie.ingredient_list
+  end
+
   def test_quantity_needed_returns_amt_needed_fora_particular_ingredient
     @apple_pie.add_ingredient(@apple, 2)
 
