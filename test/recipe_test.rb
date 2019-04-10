@@ -24,4 +24,10 @@ class RecipeTest < Minitest::Test
 
     assert_equal expected, @apple_pie.ingredients
   end
+
+  def test_quantity_needed_returns_amt_needed_fora_particular_ingredient
+    @apple_pie.add_ingredient(@apple, 2)
+
+    assert_equal 2, @apple_pie.quantity_needed(@apple)
+  end
 end
