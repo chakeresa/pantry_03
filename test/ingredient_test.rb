@@ -4,7 +4,7 @@ require './lib/ingredient'
 
 class IngredientTest < Minitest::Test
   def setup
-    @apple = Ingredient.new("apple", "1 ct", 150)
+    @apple = Ingredient.new("apple", 1, 150)
   end
 
   def test_it_exists
@@ -13,7 +13,7 @@ class IngredientTest < Minitest::Test
 
   def test_it_inits_w_name_unit_and_calories
     assert_equal "apple", @apple.name
-    assert_equal "1 ct", @apple.unit
+    assert_equal 1, @apple.unit
     assert_equal 150, @apple.calories
   end
 end
