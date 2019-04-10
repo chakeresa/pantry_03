@@ -30,4 +30,15 @@ class Recipe
       units_of_ingred_per_recipe *  calories_per_unit_of_ingred
     end
   end
+
+  def summary
+    {
+      name: @name,
+      details:
+      {
+        ingredients: ingredient_list,
+        total_calories: total_calories
+      }
+    }
+  end
 end

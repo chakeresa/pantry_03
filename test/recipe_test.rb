@@ -52,4 +52,22 @@ class RecipeTest < Minitest::Test
 
     assert_equal expected,  @apple_pie.total_calories
   end
+
+  def test_summary_returns_hash
+    @apple_pie.add_ingredient(@apple, 2)
+    @apple_pie.add_ingredient(@sugar, 1.5)
+
+    expected =       {
+      :name    => "apple pie",
+      :details => {
+        :ingredients    => [
+          {:ingredient=>"apple",   :amount=>"2 ct"},
+          {:ingredient=>"sugar",   :amount=>"1.5 cup"}
+        ],
+        :total_calories => 1350
+      }
+    }
+
+    assert_equal expected, @apple_pie.summary
+  end
 end
