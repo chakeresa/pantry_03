@@ -14,6 +14,8 @@ class CookBook
   end
 
   def summary
-    # TO DO
+    @recipes.map do |recipe_obj|
+      recipe_obj.summary
+    end
   end
 end

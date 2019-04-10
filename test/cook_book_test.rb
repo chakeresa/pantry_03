@@ -8,8 +8,8 @@ class CookBookTest < Minitest::Test
     @cheese = Ingredient.new("Cheese", "C", 100)
     @mac = Ingredient.new("Macaroni", "oz", 30)
     @mac_and_cheese = Recipe.new("Mac and Cheese")
-    @mac_and_cheese.add_ingredient(@cheese, 2)
     @mac_and_cheese.add_ingredient(@mac, 8)
+    @mac_and_cheese.add_ingredient(@cheese, 2)
     @ground_beef = Ingredient.new("Ground Beef", "oz", 100)
     @bun = Ingredient.new("Bun", "g", 1)
     @burger = Recipe.new("Burger")
@@ -32,6 +32,9 @@ class CookBookTest < Minitest::Test
   end
 
   def test_summary_returns_hashes_nested_in_an_ary
+    @cookbook.add_recipe(@mac_and_cheese)
+    @cookbook.add_recipe(@burger)
+
     expected = [
       { :name    => "Mac and Cheese",
         :details => {
