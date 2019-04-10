@@ -5,7 +5,8 @@ require './lib/recipe'
 class RecipeTest < Minitest::Test
   def setup
     @apple_pie = Recipe.new("apple pie")
-    @apple = Ingredient.new("apple", 1, 150)
+    @apple = Ingredient.new("apple", "ct", 150)
+    @sugar = Ingredient.new("sugar", "cup", 700)
   end
 
   def test_it_exists
@@ -30,4 +31,14 @@ class RecipeTest < Minitest::Test
 
     assert_equal 2, @apple_pie.quantity_needed(@apple)
   end
+
+  # def test_case_name
+  #   skip
+  #   @apple_pie.add_ingredient(@apple, 2)
+  #   @apple_pie.add_ingredient(@sugar, 2)
+  #
+  #   expected = 2 * 1 * 150 + 2 * 0.25 * 200
+  #
+  #   assert_equal @apple_pie.total_calories
+  # end
 end
